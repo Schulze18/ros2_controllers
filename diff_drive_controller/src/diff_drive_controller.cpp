@@ -616,7 +616,7 @@ CallbackReturn DiffDriveController::configure_side(
     const auto state_handle = std::find_if(
       state_interfaces_.cbegin(), state_interfaces_.cend(),
       [&wheel_name, &interface_name](const auto & interface) {
-        return interface.get_name() == wheel_name &&
+        return interface.get_prefix_name() == wheel_name &&
                interface.get_interface_name() == interface_name;
       });
 
@@ -629,7 +629,7 @@ CallbackReturn DiffDriveController::configure_side(
     const auto command_handle = std::find_if(
       command_interfaces_.begin(), command_interfaces_.end(),
       [&wheel_name](const auto & interface) {
-        return interface.get_name() == wheel_name &&
+        return interface.get_prefix_name() == wheel_name &&
                interface.get_interface_name() == HW_IF_VELOCITY;
       });
 
